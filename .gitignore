@@ -17,5 +17,5 @@
 tempfile/*
 tempfile/!.gitkeep
 
-.idea
+.idea/*
 bigfile
