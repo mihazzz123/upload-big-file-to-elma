@@ -5,20 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfbbbc38-e2ce-4ce6-80c0-47ae437e97b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/upload-big-file-to-elma.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/bigfile/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/bigfile/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/store/bigfile/bigfilerepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/store/bigfile/store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/store/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/bigfile/responsewriter.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tempfile/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/bigfile/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/bigfile/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/bigfile.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/bigfile.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/bigfile/bigfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/bigfile/bigfile.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/app/model/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/model/bigfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/bigfile/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/bigfile/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/model/bigfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/model/bigfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/store/bigfile/bigfilerepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/store/bigfile/bigfilerepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/store/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/store/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/store/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/store/repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/store/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/store/store.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +100,7 @@
       <updated>1657470095041</updated>
       <workItem from="1657470096818" duration="1632000" />
       <workItem from="1657698149595" duration="354000" />
-      <workItem from="1657705438891" duration="3287000" />
+      <workItem from="1657705438891" duration="13351000" />
     </task>
     <servers />
   </component>
