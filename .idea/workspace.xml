@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfbbbc38-e2ce-4ce6-80c0-47ae437e97b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/app/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configs/app.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/app/bigfile.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/model/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/upload-big-file-to-elma.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/bigfile/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/bigfile/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/store/bigfile/bigfilerepository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/store/bigfile/store.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/store/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/bigfile/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/bigfile/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/bigfile.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/bigfile.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/bigfile/bigfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/bigfile/bigfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/model/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/model/bigfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/store/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/store/store.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +65,33 @@
     "WebServerToolWindowFactoryState": "true",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mihazzzold/mainProjects/github.com/mihazzz123/http-rest-api",
+    "last_opened_file_path": "/home/mihazzzold/IdeaProjects/main/github.com/mihazzz123/http-rest-api",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/app/store/digfile" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/mihazzz123/upload-big-file-to-elma/cmd/bigfile" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="upload-big-file-to-elma" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/mihazzz123/upload-big-file-to-elma/cmd/bigfile" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/cmd/bigfile/main.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/mihazzz123/upload-big-file-to-elma/cmd/bigfile" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,6 +101,8 @@
       <option name="presentableId" value="Default" />
       <updated>1657470095041</updated>
       <workItem from="1657470096818" duration="1632000" />
+      <workItem from="1657698149595" duration="354000" />
+      <workItem from="1657705438891" duration="3287000" />
     </task>
     <servers />
   </component>
