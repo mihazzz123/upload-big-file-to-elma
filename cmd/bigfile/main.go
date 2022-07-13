@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"github.com/BurntSushi/toml"
-	"github.com/mihazzz123/upload-big-file-to-elma/internal/app/bigfile"
 	"log"
+	"upload-big-file-to-elma/internal/app/bigfile"
 )
 
 var (
