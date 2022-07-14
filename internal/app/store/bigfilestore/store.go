@@ -1,21 +1,21 @@
-package bigfile
+package bigfilestore
 
-import "github.com/mihazzz123/upload-big-file-to-elma/internal/app/store"
+import (
+	_ "github.com/lib/pq" // ...
+	"upload-big-file-to-elma/internal/app/store"
+)
 
 type Store struct {
-	id                string
 	BigFileRepository *BigFileRepository
 }
 
 // New ...
 func New() *Store {
-	return &Store{
-		id: "hi",
-	}
+	return &Store{}
 }
 
-// Bigfile ...
-func (s *Store) Bigfile() store.BigFileRepository {
+// BigFile ...
+func (s *Store) BigFile() store.BigFileRepository {
 	if s.BigFileRepository != nil {
 		return s.BigFileRepository
 	}

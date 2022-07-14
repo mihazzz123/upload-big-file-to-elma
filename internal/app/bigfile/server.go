@@ -1,6 +1,7 @@
 package bigfile
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -12,6 +13,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+	"upload-big-file-to-elma/internal/app/model"
+	"upload-big-file-to-elma/internal/app/store"
 )
 
 const (
@@ -27,12 +30,14 @@ type ctxKey int8
 type server struct {
 	router *mux.Router
 	logger *logrus.Logger
+	store  store.Store
 }
 
-func NewServer() *server {
+func NewServer(store store.Store) *server {
 	s := &server{
 		router: mux.NewRouter(),
 		logger: logrus.New(),
+		store:  store,
 	}
 	s.ConfigureRouter()
 	return s
@@ -70,7 +75,6 @@ func (s *server) handlerUploadFile() http.HandlerFunc {
 	type request struct {
 		Name string `json:"name"`
 		Link string `json:"link"`
-		file []byte
 	}
 	return func(w http.ResponseWriter, r *http.Request) {
 		ctype := r.Header.Get("Content-Type")
@@ -87,12 +91,27 @@ func (s *server) handlerUploadFile() http.HandlerFunc {
 				return
 			}
 			defer file.Close()
+
+			buf := bytes.NewBuffer(nil)
+			if _, err := io.Copy(buf, file); err != nil {
+				s.error(w, r, http.StatusBadRequest, err)
+				return
+			}
+			bigFile := &model.Bigfile{
+				Name:      time.Now().Format(time.RFC3339Nano) + handler.Filename,
+				Size:      int(handler.Size),
+				FileBytes: buf.Bytes(),
+			}
+
+			s.store.BigFile().SaveLocal(bigFile)
 			dst, err := os.Create("tempfile/" + time.Now().Format(time.RFC3339Nano) + handler.Filename)
 			if err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 				return
 			}
+
 			defer dst.Close()
+			// SavaLocal ...
 			if _, err := io.Copy(dst, file); err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 				return
