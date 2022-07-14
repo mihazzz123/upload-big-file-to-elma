@@ -1,4 +1,3 @@
-package bigfilestore
 
 import (
 	"errors"
@@ -13,13 +12,7 @@ import (
 var (
 	errDownloadFile = errors.New("error download file by link")
 )
-
-type BigFileRepository struct {
-	store *Store
-}
-
 // SaveLocal ...
-func (b *BigFileRepository) SaveLocal(file *model.Bigfile) error {
 
 	permissions := 0644
 	filename := "tempfile/" + time.Now().Format(time.RFC3339Nano) + file.Name
@@ -67,6 +60,3 @@ func (b *BigFileRepository) DeleteLocalTempFile(file *model.Bigfile) error {
 			fmt.Errorf("DeleteLocalTempFile error: %v", err)
 		}
 	}()
-
-	return nil
-}
