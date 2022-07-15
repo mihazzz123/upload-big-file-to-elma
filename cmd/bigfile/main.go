@@ -12,7 +12,7 @@ var (
 )
 
 func init() {
-	flag.StringVar(&configPath, "config-path", "configs/bigfilestore.toml", "path to config file")
+	flag.StringVar(&configPath, "config-path", "configs/bigfile.toml", "path to config file")
 }
 
 func main() {

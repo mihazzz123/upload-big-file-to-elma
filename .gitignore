@@ -20,3 +20,5 @@ tempfile/!.gitkeep
 .idea
 .idea/*
 bigfile
+
+./upload-big-file-to-elma.iml

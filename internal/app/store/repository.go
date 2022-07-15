@@ -7,4 +7,6 @@ import (
 // BigFileRepository ...
 type BigFileRepository interface {
 	SaveLocal(file *model.Bigfile) error
+	DownloadFileByLink(file *model.Bigfile) error
+	DeleteLocalTempFile(file *model.Bigfile) error
 }

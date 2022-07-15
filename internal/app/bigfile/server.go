@@ -11,7 +11,6 @@ import (
 	"github.com/sirupsen/logrus"
 	"io"
 	"net/http"
-	"os"
 	"time"
 	"upload-big-file-to-elma/internal/app/model"
 	"upload-big-file-to-elma/internal/app/store"
@@ -60,7 +59,7 @@ func (s *server) handlerTest() http.HandlerFunc {
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
-			s.respond(w, r, http.StatusOK, "Hello world!!!")
+			s.respond(w, r, http.StatusOK, "GET Hello world!!!")
 			return
 		}
 
@@ -72,68 +71,68 @@ func (s *server) handlerTest() http.HandlerFunc {
 }
 
 func (s *server) handlerUploadFile() http.HandlerFunc {
-	type request struct {
-		Name string `json:"name"`
-		Link string `json:"link"`
-	}
+
 	return func(w http.ResponseWriter, r *http.Request) {
 		ctype := r.Header.Get("Content-Type")
 
+		file := &model.Bigfile{}
+
 		if ctype == "multipart/form-data; boundary=-------------573cf973d5228" {
-			err := r.ParseMultipartForm(32 << 20)
-			if err != nil {
+			if err := r.ParseMultipartForm(32 << 20); err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 			}
 
-			file, handler, err := r.FormFile("file")
+			f, handler, err := r.FormFile("file")
 			if err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 				return
 			}
-			defer file.Close()
+			defer f.Close()
 
 			buf := bytes.NewBuffer(nil)
-			if _, err := io.Copy(buf, file); err != nil {
-				s.error(w, r, http.StatusBadRequest, err)
-				return
-			}
-			bigFile := &model.Bigfile{
-				Name:      time.Now().Format(time.RFC3339Nano) + handler.Filename,
-				Size:      int(handler.Size),
-				FileBytes: buf.Bytes(),
-			}
-
-			s.store.BigFile().SaveLocal(bigFile)
-			dst, err := os.Create("tempfile/" + time.Now().Format(time.RFC3339Nano) + handler.Filename)
-			if err != nil {
+			if _, err := io.Copy(buf, f); err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 				return
 			}
 
-			defer dst.Close()
-			// SavaLocal ...
-			if _, err := io.Copy(dst, file); err != nil {
-				s.error(w, r, http.StatusBadRequest, err)
-				return
+			file.Name = handler.Filename
+			file.FileBytes = buf.Bytes()
+
+		} else if ctype == "application/json" {
+			type request struct {
+				Name string `json:"name"`
+				Link string `json:"link"`
 			}
-
-			s.respond(w, r, http.StatusOK, nil)
-			return
-		}
-
-		if ctype == "application/json" {
 			req := &request{}
+
 			if err := json.NewDecoder(r.Body).Decode(req); err != nil {
 				s.error(w, r, http.StatusBadRequest, err)
 				return
 			}
 
-			s.respond(w, r, http.StatusOK, nil)
+			file.Link = req.Link
+			file.Name = req.Name
+
+			if err := s.store.BigFile().DownloadFileByLink(file); err != nil {
+				s.error(w, r, http.StatusInternalServerError, err)
+				return
+			}
+
+		} else {
+			s.error(w, r, http.StatusBadRequest, errRequiredHeaderMissing)
 			return
 		}
 
-		s.error(w, r, http.StatusBadRequest, errRequiredHeaderMissing)
+		if err := s.store.BigFile().SaveLocal(file); err != nil {
+			s.error(w, r, http.StatusInternalServerError, err)
+			return
+		}
+
+		defer s.store.BigFile().DeleteLocalTempFile(file)
+
+		s.respond(w, r, http.StatusOK, nil)
 		return
+
 	}
 }
 
