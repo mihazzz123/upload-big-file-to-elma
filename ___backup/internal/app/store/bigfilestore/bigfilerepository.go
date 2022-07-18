@@ -1,3 +1,4 @@
+package bigfilestore
 
 import (
 	"errors"
@@ -6,13 +7,19 @@ import (
 	"net/http"
 	"os"
 	"time"
-	"upload-big-file-to-elma/internal/app/model"
+	"upload-big-file-to-elma/___backup/internal/app/model"
 )
 
 var (
 	errDownloadFile = errors.New("error download file by link")
 )
+
+type BigFileRepository struct {
+	store *Store
+}
+
 // SaveLocal ...
+func (b *BigFileRepository) SaveLocal(file *model.Bigfile) error {
 
 	permissions := 0644
 	filename := "tempfile/" + time.Now().Format(time.RFC3339Nano) + file.Name
@@ -60,3 +67,6 @@ func (b *BigFileRepository) DeleteLocalTempFile(file *model.Bigfile) error {
 			fmt.Errorf("DeleteLocalTempFile error: %v", err)
 		}
 	}()
+
+	return nil
+}

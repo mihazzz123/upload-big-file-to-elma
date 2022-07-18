@@ -1,7 +1,7 @@
 package store
 
 import (
-	"upload-big-file-to-elma/internal/app/model"
+	"upload-big-file-to-elma/___backup/internal/app/model"
 )
 
 // BigFileRepository ...

@@ -2,7 +2,7 @@ package bigfilestore
 
 import (
 	_ "github.com/lib/pq" // ...
-	"upload-big-file-to-elma/internal/app/store"
+	"upload-big-file-to-elma/___backup/internal/app/store"
 )
 
 type Store struct {
