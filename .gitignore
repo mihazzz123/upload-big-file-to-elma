@@ -21,4 +21,4 @@ tempfile/!.gitkeep
 .idea/*
 bigfile
 
-./upload-big-file-to-elma.iml
+.idea/upload-big-file-to-elma.iml
