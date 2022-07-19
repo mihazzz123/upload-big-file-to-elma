@@ -1,31 +1,17 @@
 package main
 
 import (
-	"flag"
-	"github.com/BurntSushi/toml"
 	"log"
-	bigfile2 "upload-big-file-to-elma/___backup/internal/app/bigfile"
+	"upload-big-file-to-elma/config"
 )
-
-var (
-	configPath string
-)
-
-func init() {
-	flag.StringVar(&configPath, "config-path", "config/app.toml", "path to config file")
-}
 
 func main() {
-	flag.Parse()
-
-	config := bigfile2.NewConfig()
-	_, err := toml.DecodeFile(configPath, config)
+	// Configuration
+	config, err := config.NewConfig()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Config error: %s", err)
 	}
 
-	err = bigfile2.Start(config)
-	if err != nil {
-		log.Fatal(err)
-	}
+	// Run
+	app.Run(config)
 }

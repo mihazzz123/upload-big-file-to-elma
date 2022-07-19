@@ -1,6 +1,8 @@
 package service
 
-import "upload-big-file-to-elma/internal/domain/entities"
+import (
+	"upload-big-file-to-elma/internal/domain/entities"
+)
 
 // BigfileStorage ...
 type BigfileStorage interface {
