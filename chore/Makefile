@@ -1,0 +1,2 @@
+include chore/Makefile.mk
+

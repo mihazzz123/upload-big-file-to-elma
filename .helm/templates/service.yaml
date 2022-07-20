@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "upload-big-file-elma365.name" . }}
+  labels:
+    {{- include "upload-big-file-elma365.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.global.http_port }}
+      targetPort: {{ .Values.global.http_port }}
+      protocol: TCP
+      name: http
+    - port: {{ .Values.global.grpc_port }}
+      targetPort: {{ .Values.global.grpc_port }}
+      protocol: TCP
+      name: grpc
+  selector:
+    {{- include "upload-big-file-elma365.selectorLabels" . | nindent 4 }}
