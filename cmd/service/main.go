@@ -1,6 +1,6 @@
 package main
 
-import(
+import (
 	"context"
 	"fmt"
 	"os"
@@ -8,11 +8,11 @@ import(
 	"syscall"
 	"time"
 
-	"git.elewise.com/elma365/upload-big-file-elma365/internal/adaptor"
-	"git.elewise.com/elma365/upload-big-file-elma365/internal/config"
-	"git.elewise.com/elma365/upload-big-file-elma365/internal/service/http"
 	"git.elewise.com/elma365/common/pkg/mw"
 	"git.elewise.com/elma365/common/pkg/server"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/adaptor"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/service/http"
 
 	"github.com/grpc-ecosystem/go-grpc-middleware/logging/zap/ctxzap"
 	"go.uber.org/zap"
@@ -21,17 +21,17 @@ import(
 //nolint:golint
 var (
 	// BRANCH ветка
-	BRANCH = "unknown"
+	BRANCH = "main"
 	// BUILD_DATE дата
-	BUILD_DATE = "unknown"
+	BUILD_DATE = "29.07.2022"
 	// BUILD_HOST хост
-	BUILD_HOST = "unknown"
+	BUILD_HOST = "github"
 	// COMMIT git commit
-	COMMIT = "unknown"
+	COMMIT = "main commit"
 )
 
 func main() {
-	cfg, err := config.New("upload-big-file-elma365")
+	cfg, err := config.New("upload-big-file-to-elma")
 	if err != nil {
 		fmt.Println(err.Error())
 
@@ -51,7 +51,7 @@ func main() {
 	}
 
 	ctx := ctxzap.ToContext(context.Background(), zap.L())
-	httpServer := mw.NewHTTPServer(cfg.Config, http.NewService(di), )
+	httpServer := mw.NewHTTPServer(cfg.Config, http.NewService(di))
 
 	srv := server.New(nil, httpServer)
 

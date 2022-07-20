@@ -4,7 +4,7 @@ package action
 //go:generate mockgen -source=adaptor_interfaces.go -destination=dimock/adaptor_interfaces_mock.go -package=dimock -imports uuid=github.com/satori/go.uuid
 
 import (
-	"git.elewise.com/elma365/upload-big-file-elma365/internal/config"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 )
 
 // DIContainer предоставляет контейнер с методами получения необходимых адаптеров

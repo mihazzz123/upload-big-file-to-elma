@@ -1,13 +1,12 @@
 package adaptor
 
 import (
-	"git.elewise.com/elma365/upload-big-file-elma365/internal/config"
-	"github.com/pkg/errors"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 )
 
 // DIContainer dependency injection
 type DIContainer struct {
-	cfg         *config.Config
+	cfg *config.Config
 }
 
 // NewDIContainer возвращает реализацию action.DIContainer поверх подключений
@@ -18,11 +17,6 @@ func NewDIContainer(cfg config.Config) (*DIContainer, error) {
 
 	return &DIContainer{
 		&cfg,
-		
-		
-		
-		
-		
 	}, nil
 }
 

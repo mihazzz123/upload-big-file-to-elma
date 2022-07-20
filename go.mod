@@ -1,4 +1,4 @@
-module git.elewise.com/elma365/upload-big-file-elma365
+module github.com/mihazzz123/upload-big-file-to-elma
 
 go 1.17
 

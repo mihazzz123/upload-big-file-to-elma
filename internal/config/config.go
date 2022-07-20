@@ -9,9 +9,8 @@ import (
 // Config of application
 type Config struct {
 	config.Config
-
-	// TODO: добавьте свои параметры 
-	// MyParameter string
+	// TODO: добавьте свои параметры
+	//MyParameter string
 }
 
 // New создать новый конфиг
