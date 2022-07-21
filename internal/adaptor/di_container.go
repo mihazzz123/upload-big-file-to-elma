@@ -1,6 +1,7 @@
 package adaptor
 
 import (
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/action/di"
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 )
 
@@ -23,4 +24,9 @@ func NewDIContainer(cfg config.Config) (*DIContainer, error) {
 // GetConfig возвращает конфиг
 func (di *DIContainer) GetConfig() *config.Config {
 	return di.cfg
+}
+
+// GetBigfileRepository ...
+func (di *DIContainer) GetBigfileRepository() di.BigfileRepository {
+	return NewBigfileRepository()
 }

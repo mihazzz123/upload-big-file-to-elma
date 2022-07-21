@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 	"os"
 	"os/signal"
 	"syscall"
@@ -11,7 +12,6 @@ import (
 	"git.elewise.com/elma365/common/pkg/mw"
 	"git.elewise.com/elma365/common/pkg/server"
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/adaptor"
-	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/service/http"
 
 	"github.com/grpc-ecosystem/go-grpc-middleware/logging/zap/ctxzap"

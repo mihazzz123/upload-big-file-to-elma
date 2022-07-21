@@ -2,12 +2,11 @@ package bigfilestore
 
 import (
 	"errors"
-	"fmt"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/model"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
-	"upload-big-file-to-elma/___backup/internal/app/model"
 )
 
 var (
@@ -28,7 +27,7 @@ func (b *BigFileRepository) SaveLocal(file *model.Bigfile) error {
 		return err
 	}
 
-	file.LocalLink = filename
+	//file.LocalLink = filename
 	file.Size = len(file.FileBytes)
 
 	return nil
@@ -60,13 +59,13 @@ func (b *BigFileRepository) DownloadFileByLink(file *model.Bigfile) error {
 
 // DeleteLocalTempFile ...
 func (b *BigFileRepository) DeleteLocalTempFile(file *model.Bigfile) error {
-	timeOutDeleteFile := time.Hour * 10
-	go func() {
-		time.Sleep(timeOutDeleteFile)
-		if err := os.Remove(file.LocalLink); err != nil {
-			fmt.Errorf("DeleteLocalTempFile error: %v", err)
-		}
-	}()
+	//timeOutDeleteFile := time.Hour * 10
+	//go func() {
+	//	time.Sleep(timeOutDeleteFile)
+	//if err := os.Remove(file.LocalLink); err != nil {
+	//	fmt.Errorf("DeleteLocalTempFile error: %v", err)
+	//}
+	//}()
 
 	return nil
 }

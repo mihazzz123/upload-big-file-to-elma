@@ -1,7 +1,6 @@
 package model
 
 import (
-	"errors"
 	uuid "github.com/satori/go.uuid"
 )
 
@@ -13,10 +12,6 @@ type Bigfile struct {
 	Size      int
 	FileBytes []byte
 }
-
-var (
-	errDownloadFile = errors.New("error download file by link")
-)
 
 // NewBigfile ...
 func NewBigfile(bigfile *Bigfile) (*Bigfile, error) {
