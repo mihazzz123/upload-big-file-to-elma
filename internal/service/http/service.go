@@ -2,6 +2,8 @@ package http
 
 import (
 	"encoding/json"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/action/di"
+	"github.com/mihazzz123/upload-big-file-to-elma/internal/model"
 	"net/http"
 
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/action"
@@ -11,11 +13,11 @@ import (
 
 // Service новый http сервис
 type Service struct {
-	di action.DIContainer
+	di di.Container
 }
 
 // NewService новый http
-func NewService(di action.DIContainer) http.Handler {
+func NewService(di di.Container) http.Handler {
 	hs := Service{di: di}
 	return hs.newRouter()
 }
@@ -24,7 +26,7 @@ func (hs Service) newRouter() chi.Router {
 	r := chi.NewRouter()
 
 	r.Get("/test", hs.testHandler())
-	r.Post("/upload", hs.uploadFilelink())
+	r.Post("/upload", hs.uploadFile())
 
 	return r
 }
@@ -35,8 +37,21 @@ func (hs Service) testHandler() http.HandlerFunc {
 	})
 }
 
-func (hs Service) uploadFilelink() http.HandlerFunc {
+func (hs Service) uploadFile() http.HandlerFunc {
+
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		bf := &model.Bigfile{}
+
+		if err := json.NewDecoder(r.Body).Decode(bf); err != nil {
+			hs.error(w, r, http.StatusBadRequest, err)
+			return
+		}
+
+		if err := action.CreateBigfile(bf, hs.di); err != nil {
+			hs.error(w, r, http.StatusInternalServerError, err)
+			return
+		}
+
 		hs.respond(w, r, http.StatusOK, "upload file link")
 
 	})
