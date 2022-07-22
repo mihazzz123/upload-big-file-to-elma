@@ -8,6 +8,7 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/ilyakaznacheev/cleanenv v1.3.0
 	github.com/satori/go.uuid v1.2.0
+	github.com/stretchr/testify v1.8.0
 	github.com/vporoshok/envcfg v1.2.1
 	go.uber.org/zap v1.21.0
 )
@@ -38,12 +39,12 @@ require (
 	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/client_golang v1.7.1 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.10.0 // indirect
 	github.com/prometheus/procfs v0.1.3 // indirect
 	github.com/soheilhy/cmux v0.1.4 // indirect
-	github.com/stretchr/objx v0.2.0 // indirect
 	github.com/uber/jaeger-client-go v2.25.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.0+incompatible // indirect
 	github.com/vporoshok/casey v0.1.0 // indirect

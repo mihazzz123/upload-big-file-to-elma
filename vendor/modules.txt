@@ -150,6 +150,9 @@ github.com/opentracing/opentracing-go/log
 # github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
+# github.com/pmezard/go-difflib v1.0.0
+## explicit
+github.com/pmezard/go-difflib/difflib
 # github.com/prometheus/client_golang v1.7.1
 ## explicit; go 1.11
 github.com/prometheus/client_golang/prometheus
@@ -175,8 +178,9 @@ github.com/satori/go.uuid
 # github.com/soheilhy/cmux v0.1.4
 ## explicit
 github.com/soheilhy/cmux
-# github.com/stretchr/objx v0.2.0
-## explicit; go 1.12
+# github.com/stretchr/testify v1.8.0
+## explicit; go 1.13
+github.com/stretchr/testify/assert
 # github.com/uber/jaeger-client-go v2.25.0+incompatible
 ## explicit
 github.com/uber/jaeger-client-go

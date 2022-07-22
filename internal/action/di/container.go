@@ -1,6 +1,7 @@
 package di
 
 import (
+	"context"
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/config"
 	"github.com/mihazzz123/upload-big-file-to-elma/internal/model"
 )
@@ -17,5 +18,5 @@ type Container interface {
 // BigfileRepository ...
 type BigfileRepository interface {
 	DownloadByLink(bigfile *model.Bigfile) error
-	SendFileToElma(bigfile *model.Bigfile, cfgElma *config.Config) error
+	SendFileToElma(ctx context.Context, bigfile *model.Bigfile, cfgElma *config.Config) error
 }
